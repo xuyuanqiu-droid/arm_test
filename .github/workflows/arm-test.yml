@@ -10,5 +10,4 @@ jobs:
         run: wget -qO- https://cli.test.data.garenanow.com/install.sh | sh
       - name: Verify
         run: |
-          source ~/.bashrc
-          gdata version
+          ~/.local/bin/gdata version
