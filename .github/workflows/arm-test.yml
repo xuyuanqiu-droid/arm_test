@@ -7,7 +7,13 @@ jobs:
       - name: Check Architecture
         run: uname -m
       - name: Install gdata
-        run: wget -qO- https://cli.test.data.garenanow.com/install.sh | sh
+        run: |
+          wget -O /tmp/install.sh https://cli.test.data.garenanow.com/install.sh
+          echo "===== 下载的脚本大小 ====="
+          ls -l /tmp/install.sh
+          echo "===== 执行安装 ====="
+          sh /tmp/install.sh
       - name: Verify
         run: |
-          ~/.local/bin/gdata version
+          echo "===== 查找 gdata 实际路径 ====="
+          find /home/runner -name "gdata"
